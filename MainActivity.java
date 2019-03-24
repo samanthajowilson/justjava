@@ -1,3 +1,11 @@
+/**
+ * IMPORTANT: Make sure you are using the correct package name.
+ * This example uses the package name:
+ * package com.example.android.justjava
+ * If you get an error when copying this code into Android studio, update it to match teh package name found
+ * in the project's AndroidManifest.xml file.
+ **/
+
 package com.example.samanthawilson.justjava;
 
 
@@ -5,7 +13,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -26,20 +36,28 @@ public class MainActivity extends AppCompatActivity {
         CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
 
+        CheckBox chocolateCheckBox = (CheckBox) findViewById(R.id.chocolate_checkbox);
+        boolean hasChocolate = chocolateCheckBox.isChecked();
+
+        EditText nameEditText = (EditText) findViewById(R.id.name_field);
+        String name = nameEditText.getText().toString();
+
         int price = calculatePrice();
-        String priceMessage = createOrderSummary(price, hasWhippedCream);
+        String priceMessage = createOrderSummary(price, hasWhippedCream, hasChocolate, name);
         displayMessage(priceMessage);
    }
 
     private int calculatePrice() { return quantity * 5; }
-    private String createOrderSummary(int price, boolean addWhippedCream) {
-        String priceMessage = "Name: Samantha";
+    private String createOrderSummary(int price, boolean addWhippedCream, boolean addChocolate, String nameEditText) {
+        String priceMessage = "Name: " + nameEditText;
         priceMessage += "\nAdd whipped cream? " + addWhippedCream;
+        priceMessage += "\nAdd Chocolate? " + addChocolate;
         priceMessage += "\nQuantity: " + quantity;
         priceMessage += "\nTotal: $" + price;
         priceMessage += "\nThank you!";
         return priceMessage;
     }
+
     /**
      * This method displays the given text on the screen.
      */
