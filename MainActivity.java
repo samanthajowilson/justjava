@@ -42,12 +42,25 @@ public class MainActivity extends AppCompatActivity {
         EditText nameEditText = (EditText) findViewById(R.id.name_field);
         String name = nameEditText.getText().toString();
 
-        int price = calculatePrice();
+
+        int price = calculatePrice(hasWhippedCream, hasChocolate);
         String priceMessage = createOrderSummary(price, hasWhippedCream, hasChocolate, name);
         displayMessage(priceMessage);
    }
 
-    private int calculatePrice() { return quantity * 5; }
+    private int calculatePrice(boolean hasWhippedCream, boolean hasChocolate) {
+        int basePrice = 5;
+        if (hasWhippedCream) {
+            basePrice = basePrice + 1;
+        }
+        if (hasChocolate) {
+            basePrice = basePrice + 2;
+        }
+    if (quantity <= 0) {
+            basePrice = 0;
+    }
+        return quantity * basePrice;
+    }
     private String createOrderSummary(int price, boolean addWhippedCream, boolean addChocolate, String nameEditText) {
         String priceMessage = "Name: " + nameEditText;
         priceMessage += "\nAdd whipped cream? " + addWhippedCream;
