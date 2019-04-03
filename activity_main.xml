@@ -21,20 +21,20 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Topping"
+        android:text="@string/toppings"
         android:layout_margin="16dp"
         android:textSize="20dp"/>
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Whipped Cream"
+        android:text="@string/Whipped_Cream"
         android:paddingLeft="24dp"
         android:textSize="16sp"
         android:id="@+id/whipped_cream_checkbox"/>
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chocolate"
+        android:text="@string/Chocolate"
         android:paddingLeft="24dp"
         android:textSize="16sp"
         android:id="@+id/chocolate_checkbox"/>
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:padding="16dp"
-        android:text="Quantity"
+        android:text="@string/quantity"
         android:textSize="20dp"/>
     <LinearLayout
         android:layout_width="wrap_content"
@@ -84,7 +84,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="order"
+        android:text="@string/Order"
         android:padding="16dp"
         android:layout_gravity="center"
         android:onClick="submitOrder"
