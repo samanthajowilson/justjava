@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Just Java Order For: " + name);
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name) + " " + getString(R.string.Order) + " " + name);
         intent.putExtra(Intent.EXTRA_TEXT, priceMessage);
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
@@ -75,12 +75,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String createOrderSummary(int price, boolean addWhippedCream, boolean addChocolate, String nameEditText) {
-        String priceMessage = "Name: " + nameEditText;
-        priceMessage += "\nAdd whipped cream? " + addWhippedCream;
-        priceMessage += "\nAdd Chocolate? " + addChocolate;
-        priceMessage += "\nQuantity: " + quantity;
-        priceMessage += "\nTotal: $" + price;
-        priceMessage += "\nThank you!";
+        String priceMessage = getString(R.string.name) + " " + nameEditText;
+        priceMessage += "\n" + getString(R.string.add_whipped_cream) + " " + addWhippedCream;
+        priceMessage += "\n" + getString(R.string.add_chocolate) + " " + addChocolate;
+        priceMessage += "\n" + getString(R.string.quantity) + " " + quantity;
+        priceMessage += "\n" + getString(R.string.total) + price;
+        priceMessage += "\n" + getString(R.string.thank_you);
         return priceMessage;
     }
 
@@ -123,6 +123,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 //    /**
+//     * This method displays the given price on the screen.
+//     */
+//    private void displayPrice(int number) {
+//        TextView priceTextView = findViewById(R.id.price_text_view);
+//        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+//    }
+
+}
 //     * This method displays the given price on the screen.
 //     */
 //    private void displayPrice(int number) {
